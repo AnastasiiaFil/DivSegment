@@ -72,30 +72,30 @@ namespace DivSegmentWinForms
 
         private void Form1_Load()
         {
-           
+            // Размер объекта "ClientSize" (область для рисования) по ширине.
             int bHeight = 600;
-          
+            // Размер объекта "ClientSize" (область для рисования) по высоте.
             int bWidth = 600;
           
             this.ClientSize = new Size(bWidth, bHeight);
 
             Bitmap bm = new Bitmap(bHeight, bWidth);
-        
+            // Создаём новый объект "Graphics" - локальная переменная "g".
             Graphics g = Graphics.FromImage(bm);
- 
+            // Перебрасываем изображение (посредством переменной "bm") в pictureBox1.
             this.pictureBox1.Image = bm;
 
-            
+            //Создаём объект "Pen", объявив локальную переменную "p", чёрного цвета и шириной 5 пикселов свойства -"Color.Black, 5".
             Pen p = new Pen(Color.Black, 5);
-
+            // Для визуализации координатных осей создадим маркеры в форме стрелок на концах линий
             p.EndCap = LineCap.ArrowAnchor;
-           
+            //  Задаём расположение рисунка
             g.DrawLine(p, 20, bHeight / 2, bWidth - 20, bHeight / 2);
             
             g.DrawLine(p, bWidth / 2, bHeight - 20, bWidth / 2, 20);
            
             int x, y;
- 
+            // Реализация вывода графика циклом
             for (double i = (-2) * Math.PI; i <= 2 * Math.PI; i += 0.0001)
             {
                 x = bWidth / 2 - Convert.ToInt32(40 * i);
